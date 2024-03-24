@@ -5,7 +5,7 @@ const PlantDiseaseIdentifier = () => {
 
     const testingData = async () => {
         try {
-            const response = await fetch('http://localhost:8000/getData', {
+            const response = await fetch('http://localhost:5000/getData', {
                 method: 'GET'
             });
 
@@ -14,7 +14,7 @@ const PlantDiseaseIdentifier = () => {
             }
 
             const data = await response.json();
-            setTestData(data.message); // Update state with the fetched message
+            setTestData(data.message); 
         } catch (error:any) {
             console.error(error.message);
         }

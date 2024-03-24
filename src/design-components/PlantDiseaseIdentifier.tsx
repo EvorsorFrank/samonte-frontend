@@ -1,47 +1,32 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const PlantDiseaseIdentifier = () => {
+    const [testData, setTestData] = useState<string>('');
 
-    const [predictedClass, setPredictedClass] = useState<string>('');
-
-    const handleDrop = async (event:any) => {
-        event.preventDefault();
-        const file = event.dataTransfer.files[0];
-        const formData = new FormData();
-        formData.append('image', file);
-
+    const testingData = async () => {
         try {
-            const response = await fetch('http://localhost:5000/upload_image', {
-                method: 'POST',
-                body: formData,
-                mode: "no-cors"
-            })
+            const response = await fetch('http://localhost:8000/getData', {
+                method: 'GET'
+            });
 
-            const data = await response.json()
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
 
-            if (response.status === 200) {
-                setPredictedClass(data.class);
-              }
-              
+            const data = await response.json();
+            setTestData(data.message); // Update state with the fetched message
         } catch (error:any) {
-            console.error(error.message)
+            console.error(error.message);
         }
-
     };
-console.log(predictedClass)
+
+    useEffect(() => {
+        testingData();
+    }, []);
+
     return (
         <>
-            <div className='text-base text-center'>
-                Please insert an image below then select a crop to identify
-            </div>
-            <div onDrop={handleDrop} onDragOver={(e) => e.preventDefault()}>
-                Drag and Drop Image Here
-            </div>
-            {predictedClass && (
-                <div className='text-base text-center'>
-                    Predicted Class: {predictedClass}
-                </div>
-            )}
+            {testData}
         </>
     );
 };

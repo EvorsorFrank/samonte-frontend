@@ -1,16 +1,13 @@
-import magnifyLogo from "../assets/magnifyingGlassLeaf.jpg"
+import magnifyLogo from "../assets/magnifyingGlassLeaf.png"
 
 const Header = () => {
     return (
-        <div className="flex sticky h-16 min-w-screen justify-end items-center border-b">
-            <div className="flex absolute left-3 items-center">
-                <img src={magnifyLogo} className="h-14" />
-                <div className="ml-2">
-                    Plant Disease Identifier
+        <div className= 'flex top-0 sticky h-16 min-w-screen justify-start items-center border-b-[1px] bg-gradient-to-r from-green-600 to-lime-500'>
+            <div className="flex items-center ml-2 ">
+                <img src={magnifyLogo} className="h-16" />
+                <div className="text-md font-medium">
+                    Agricultural Plant Disease Identifier
                 </div>
-            </div>
-            <div className="hidden items-center mr-10 sm:flex">
-                Maps
             </div>
         </div>
     )

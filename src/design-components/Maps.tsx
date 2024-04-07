@@ -1,5 +1,5 @@
 'use client'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { useState, useEffect } from 'react';
 import endpointAPI from '../endpointAPI'
 import { useMap, MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
@@ -20,9 +20,6 @@ type HeatmapResponseData = {
   latitude: number;
   longitude: number;
 }[];
-
-// Define a type for the heatmap data
-type HeatmapData = [number, number, number][];
 
 type ClusterDiseaseData = [number, number, string][];
 
@@ -73,16 +70,6 @@ const Maps = () => {
   const [clickedClusterData, setClickedClusterData] = useState<[string, number][]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedCrop, setSelectedCrop] = useState<string>('');
-  const [isConnectionError, setIsConnectionError] = useState<boolean>(false);
-  const initialUserProceedMaps = JSON.parse(sessionStorage.getItem('userProceedMaps') || 'false') as boolean;
-  const [userProceedMaps, setUserProceedMaps] = useState<boolean>(initialUserProceedMaps);
-  const [showTypography, setShowTypography] = useState(false);
-
-  useEffect(() => {
-    // Update session storage whenever userProceedMaps changes
-    sessionStorage.setItem('userProceedMaps', JSON.stringify(userProceedMaps));
-  }, [userProceedMaps]);
-
 
   useEffect(() => {
     if (selectedCrop) {
@@ -103,27 +90,12 @@ const Maps = () => {
           }
         } catch (error) {
           console.error('Error fetching heatmap data:', error);
-          // Set connection error state
-          setIsConnectionError(true);
         }
       };
 
       fetchData();
     }
   }, [selectedCrop]);
-
-
-  useEffect(() => {
-    // Set a timer to show the Typography component after 10 seconds (adjust the time as needed)
-    const timerId = setTimeout(() => {
-      setShowTypography(true);
-    }, 10000);
-
-    // Clear the timer when the component is unmounted
-    return () => clearTimeout(timerId);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Empty dependency array ensures this effect runs only once on component mount
 
 
   if (latitudeUser === null || longitudeUser === null) {

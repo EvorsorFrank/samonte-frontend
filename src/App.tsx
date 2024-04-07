@@ -2,9 +2,7 @@ import { useState, useEffect, createContext } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Home from './components/Home'
-import { motion } from "framer-motion"
 import PrivacyPolicy from './components/PrivacyPolicy'
-import backgroundImg from './assets/backgroundImg.jpg'
 
 interface locationDataProps {
   latitude: number;

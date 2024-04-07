@@ -15,7 +15,6 @@ const PlantDiseaseIdentifier = () => {
     const [selectedIdentification, setSelectedIdentification] = useState<string>("")
     const [uploadedFile, setUploadedFile] = useState<FileWithPath | null>(null)
     const [predictedClass, setPredictedClass] = useState<string>('')
-    const [latitude, setLatitude] = useState<number>(location.latitude)
     const [showDescriptionModal, setShowDescriptionModal] = useState<boolean>(false)
     const [showMTModal, setShowMTModal] = useState<boolean>(false)
 
@@ -105,7 +104,7 @@ const PlantDiseaseIdentifier = () => {
                             className={`
                                 ${selectedIdentification ? '' : 'pointer-events-none text-gray-500 border-gray-500'} 
                                 h-8 rounded-full border border-black mt-4`}>
-                            {(latitude != 0) ? (selectedIdentification ? 'Upload' : 'Select Crop First') : 'Turn Your Location On'}
+                            {(location.latitude != 0) ? (selectedIdentification ? 'Upload' : 'Select Crop First') : 'Turn Your Location On'}
                         </button>
                     </>
                 }

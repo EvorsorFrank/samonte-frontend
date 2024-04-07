@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Bar } from 'react-chartjs-2';
 import Lottie from "lottie-react";
 import {

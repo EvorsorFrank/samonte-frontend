@@ -25,7 +25,7 @@ function PrivacyPolicy({ isVisible, onClose }: PrivacyPolicyProps) {
   } else {
     return (
       <div className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm text-center justify-center items-center z-40 flex`}>
-        <div className="max-w-[500px] mx-2 flex flex-col rounded-2xl bg-white border-black border text-black text-center justify-center items-center">
+        <div className="max-w-[420px] flex flex-col rounded-2xl bg-white border-black border text-black text-center justify-center items-center">
           <div className='text-lg font-semibold m-2'>
             To Continue, you need to Read and Accept our Privacy Policy and turn on Location
           </div>

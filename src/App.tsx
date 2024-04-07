@@ -43,7 +43,7 @@ function App() {
   return (
     <>
       <locationData.Provider value={userLocation || { latitude: 0, longitude: 0 }}>
-        <div className='text-black h-screen overflow-y-auto border-black bg-gradient-to-r from-green-500 to-lime-400'>
+        <div className='text-black h-screen overflow-y-auto border-black bg-gradient-to-r from-green-500 to-lime-400 -z-50'>
             <Header />
           {acceptedPolicy &&
             <>

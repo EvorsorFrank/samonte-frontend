@@ -7,6 +7,7 @@ import {
     Legend
 } from 'chart.js'
 import { motion } from "framer-motion"
+import endpointAPI from '../endpointAPI';
 
 import refreshIcon from "../assets/refreshIcon.png"
 import ExtraStatistics from '../extensions/ExtraStatistics';
@@ -24,6 +25,8 @@ interface PlantDiseaseCountsByCity {
 
 
 const Statistics: React.FC = () => {
+    const baseURL = endpointAPI();
+
     const [identificationCount, setIdentificationCount] = useState<number>(0);
     const [beanCount, setBeanCount] = useState<number>(0);
     const [cornCount, setCornCount] = useState<number>(0);
@@ -37,7 +40,7 @@ const Statistics: React.FC = () => {
 
     const getIDCount = async () => {
         try {
-            const response = await fetch('http://localhost:5000/identification_count', {
+            const response = await fetch(`${baseURL}/identification_count`, {
                 method: 'GET',
             });
             const data = await response.json();
@@ -53,7 +56,7 @@ const Statistics: React.FC = () => {
 
     const getPlantDiseaseCountsByCity = async () => {
         try {
-            const response = await fetch('http://localhost:5000/plant_disease_counts', {
+            const response = await fetch(`${baseURL}/plant_disease_counts`, {
                 method: 'GET',
             });
             const data = await response.json();

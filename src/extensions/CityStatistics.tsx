@@ -291,9 +291,11 @@ function CityStatistics({ isVisible, onClose }: CityStatisticsProps) {
                                 </div>
                             }
                         </div>
-                        <button onClick={() => onClose()}>
-                            Close
-                        </button>
+                        <div className="w-full mb-2">
+                            <button className="h-7 w-20 border border-black rounded-full mt-2" onClick={() => onClose()}>
+                                Close
+                            </button>
+                        </div>
                     </div>
                 }
             </div>

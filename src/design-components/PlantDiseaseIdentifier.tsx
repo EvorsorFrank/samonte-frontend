@@ -4,16 +4,20 @@ import Lottie from "lottie-react";
 import identifyingLeaf from "../assets/identifyingLeaf.json"
 import { motion } from "framer-motion"
 import { locationData } from "../App"
+import endpointAPI from "../endpointAPI";
+import DescriptionModal from "../extensions/DescriptionModal";
+import MTModal from "../extensions/MTModal";
 
 const PlantDiseaseIdentifier = () => {
+    const baseURL = endpointAPI();
     const location = useContext(locationData)
 
     const [selectedIdentification, setSelectedIdentification] = useState<string>("")
     const [uploadedFile, setUploadedFile] = useState<FileWithPath | null>(null)
     const [predictedClass, setPredictedClass] = useState<string>('')
-    const [longitude, setLongitude] = useState<number>(location.longitude)
     const [latitude, setLatitude] = useState<number>(location.latitude)
-
+    const [showDescriptionModal, setShowDescriptionModal] = useState<boolean>(false)
+    const [showMTModal, setShowMTModal] = useState<boolean>(false)
 
     const [donePrediction, setDonePrediction] = useState<boolean>(false)
     const [loadingPredict, setLoadingPredict] = useState<boolean>(false)
@@ -42,7 +46,7 @@ const PlantDiseaseIdentifier = () => {
                 }
                 formData.append('date', formattedDate)
 
-                const response = await fetch('https://27d9-110-54-155-191.ngrok-free.app/predict', {
+                const response = await fetch(`${baseURL}/predict`, {
                     method: 'POST',
                     body: formData,
                 })
@@ -63,8 +67,7 @@ const PlantDiseaseIdentifier = () => {
     return (
         <>
             <div className="flex flex-col">
-
-                <div className="my-5">
+                <div className="my-1">
                     {!uploadedFile && !loadingPredict && !donePrediction &&
                         <Dropzone accept={{ 'image/jpeg': [], 'image/png': [] }} onDrop={onDrop}>
                             {({ getRootProps, getInputProps }) => (
@@ -119,12 +122,23 @@ const PlantDiseaseIdentifier = () => {
                                 <img src={URL.createObjectURL(uploadedFile)} alt="Uploaded File" style={{ maxWidth: '100%', maxHeight: '200px' }} />
                             </div>
                         )}
-                        <button onClick={() => { setDonePrediction(false); setUploadedFile(null) }} className="border-white">
+                        <button onClick={() => { setDonePrediction(false); setUploadedFile(null) }} className="border border-black rounded-full w-full mt-2">
                             Try Again
                         </button>
+                        <button className="border border-black rounded-full w-full mt-2" onClick={() => setShowDescriptionModal(true)}>
+                            What is {predictedClass}?
+                        </button>
+                        {showDescriptionModal &&
+                            <DescriptionModal predictedClass={predictedClass} isVisible={showDescriptionModal} onClose={() => setShowDescriptionModal(false)} />
+                        }
+                        <button className="text-balance border border-black rounded-full w-full mt-2" onClick={() => setShowDescriptionModal(true)}>
+                            Management and Treatment
+                        </button>
+                        {showMTModal &&
+                            <MTModal predictedClass={predictedClass} isVisible={showMTModal} onClose={() => setShowMTModal(false)} />
+                        }
                     </motion.div>
                 }
-
                 <div>
                     {location.latitude}
                     {location.longitude}

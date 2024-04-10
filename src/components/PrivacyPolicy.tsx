@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import { locationData } from "../App"
+import { useState } from "react";
 
 interface PrivacyPolicyProps {
   isVisible: boolean;

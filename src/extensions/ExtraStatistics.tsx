@@ -53,6 +53,10 @@ function ExtraStatistics({ isVisible, onClose }: ExtraStatisticsProps) {
         try {
             const response = await fetch(`${baseURL}/plant_disease_rankings`, {
                 method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "ngrok-skip-browser-warning": "00000",
+                },
             });
             const data = await response.json();
             setBeansDiseaseCount(data.Beans);

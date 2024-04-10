@@ -42,7 +42,7 @@ const PlantDiseaseIdentifier = () => {
         const signal = controllerRef.current.signal;
         try {
             if (uploadedFile) {
-                const formData = new FormData();
+                const formData = new FormData();    
                 formData.append('file', uploadedFile);
                 formData.append('predictType', selectedIdentification);
                 if (location) {
@@ -54,6 +54,11 @@ const PlantDiseaseIdentifier = () => {
                 const response = await fetch(`${baseURL}/predict`, {
                     method: 'POST',
                     body: formData,
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        "ngrok-skip-browser-warning": "00000",
+                      },
+                    
                     signal
                 })
                 const data = await response.json()
@@ -132,8 +137,8 @@ const PlantDiseaseIdentifier = () => {
                         <div className="h-full">
                             <Lottie animationData={identifyingLeaf} />
                         </div>
-                        <div className="flex items-center justify-center">
-                            <button className="font-bold text-lg text-center -mt-10 border border-black rounded-full w-[80%]" onClick={() => setLoadingPredict(false)}>
+                        <div className="flex items-center justify-center"> 
+                            <button className="font-bold text-lg text-center -mt-10 border border-black rounded-full w-[80%] z-20" onClick={() => setLoadingPredict(false)}>
                                 Cancel
                             </button>
                         </div>

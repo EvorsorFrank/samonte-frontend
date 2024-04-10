@@ -141,7 +141,7 @@ const Statistics: React.FC = () => {
                 <Lottie animationData={loadingAnimation} />
             }
             {failedFetchStat && !loadingFetch &&
-                <div className='text-center mt-20'>
+                <div className='text-center mt-20 flex-col'>
                     <div className="text-xl">
                         Failed to obtain data from server :(
                     </div>
@@ -155,7 +155,7 @@ const Statistics: React.FC = () => {
                 </div>
             }
             {locationTurnedOff && !failedFetchStat &&
-                <div className='text-center mt-20'>
+                <div className='text-center mt-20 flex flex-col'>
                     <div className="text-xl">
                         Turn on Location First :(
                     </div>

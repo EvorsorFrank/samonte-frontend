@@ -10,6 +10,7 @@ import {
     BarElement
 } from 'chart.js'
 import loadingAnimation from '../assets/loadingAnimation.json'
+import endpointAPI from "../endpointAPI";
 
 ChartJS.register(
     ArcElement,
@@ -41,7 +42,7 @@ interface TomatoCityDiseaseCount {
 }
 
 function CityStatistics({ isVisible, onClose }: CityStatisticsProps) {
-
+    const baseURL = endpointAPI();
     const location = useContext(locationData)
 
     const [beansCityDiseaseCount, setBeansCityDiseaseCount] = useState<BeansCityDiseaseCount[]>([])
@@ -58,7 +59,7 @@ function CityStatistics({ isVisible, onClose }: CityStatisticsProps) {
                 formData.append('longitude', String(location.longitude));
             }
 
-            const response = await fetch('http://localhost:5000/plant_disease_rankings_city', {
+            const response = await fetch(`${baseURL}/plant_disease_rankings_city`, {
                 method: 'POST',
                 body: formData,
             })

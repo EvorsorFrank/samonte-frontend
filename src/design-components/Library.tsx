@@ -96,7 +96,7 @@ const Library = () => {
           ?
         </div>
       )}
-      <ul className="border border-black max-h-[400px] overflow-y-auto">
+      <ul className="border-[3px] border-black max-h-[400px] overflow-y-auto">
         {filteredDiseases.map((disease, index) => (
           <li
             className="py-2 border-y-[1px] border-black cursor-pointer hover:bg-yellow-300 indent-4"

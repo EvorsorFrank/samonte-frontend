@@ -9,6 +9,7 @@ import {
     BarElement
 } from 'chart.js'
 import loadingAnimation from '../assets/loadingAnimation.json'
+import endpointAPI from "../endpointAPI";
 
 ChartJS.register(
     ArcElement,
@@ -40,6 +41,7 @@ interface TomatoDiseaseCount {
 }
 
 function ExtraStatistics({ isVisible, onClose }: ExtraStatisticsProps) {
+    const baseURL = endpointAPI();
 
     const [beansDiseaseCount, setBeansDiseaseCount] = useState<BeansDiseaseCount[]>([])
     const [cornDiseaseCount, setCornDiseaseCount] = useState<CornDiseaseCount[]>([])
@@ -49,7 +51,7 @@ function ExtraStatistics({ isVisible, onClose }: ExtraStatisticsProps) {
 
     const getPlantDiseaseCounts = async () => {
         try {
-            const response = await fetch('http://localhost:5000/plant_disease_rankings', {
+            const response = await fetch(`${baseURL}/plant_disease_rankings`, {
                 method: 'GET',
             });
             const data = await response.json();

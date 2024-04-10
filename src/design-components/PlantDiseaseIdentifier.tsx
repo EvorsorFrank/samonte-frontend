@@ -1,4 +1,4 @@
-import { useContext, useState, useCallback } from "react";
+import { useContext, useState, useCallback, useRef, useEffect } from "react";
 import Dropzone, { FileWithPath } from "react-dropzone";
 import Lottie from "lottie-react";
 import identifyingLeaf from "../assets/identifyingLeaf.json"
@@ -7,10 +7,13 @@ import { locationData } from "../App"
 import endpointAPI from "../endpointAPI";
 import DescriptionModal from "../extensions/DescriptionModal";
 import MTModal from "../extensions/MTModal";
+import FailedPopup from "../design/FailedPopup";
 
 const PlantDiseaseIdentifier = () => {
-    const baseURL = endpointAPI();
+    const baseURL = endpointAPI()
     const location = useContext(locationData)
+    const controllerRef = useRef<AbortController>()
+    //new
 
     const [selectedIdentification, setSelectedIdentification] = useState<string>("")
     const [uploadedFile, setUploadedFile] = useState<FileWithPath | null>(null)
@@ -20,6 +23,7 @@ const PlantDiseaseIdentifier = () => {
 
     const [donePrediction, setDonePrediction] = useState<boolean>(false)
     const [loadingPredict, setLoadingPredict] = useState<boolean>(false)
+    const [failedPredict, setFailedPredict] = useState<boolean>(false)
 
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -34,6 +38,8 @@ const PlantDiseaseIdentifier = () => {
     }, []);
 
     const handleUpload = async () => {
+        controllerRef.current = new AbortController();
+        const signal = controllerRef.current.signal;
         try {
             if (uploadedFile) {
                 const formData = new FormData();
@@ -48,8 +54,8 @@ const PlantDiseaseIdentifier = () => {
                 const response = await fetch(`${baseURL}/predict`, {
                     method: 'POST',
                     body: formData,
+                    signal
                 })
-
                 const data = await response.json()
                 setSelectedIdentification('')
                 setPredictedClass(data.class)
@@ -59,12 +65,25 @@ const PlantDiseaseIdentifier = () => {
             }
         } catch (error: any) {
             console.error('Error Uploading', error)
+            setLoadingPredict(false)
+            setFailedPredict(true);
         }
 
     };
 
+    useEffect(() => {
+        setTimeout(
+            function () {
+                setFailedPredict(false)
+            }
+            , 2500)
+    }, [failedPredict])
+
     return (
         <>
+            <motion.div animate={{ y: failedPredict ? 0 : 0 }}>
+                <FailedPopup isVisible={failedPredict} onClose={() => setFailedPredict(false)} />
+            </motion.div>
             <div className="flex flex-col">
                 <div className="my-1">
                     {!uploadedFile && !loadingPredict && !donePrediction &&
@@ -104,12 +123,21 @@ const PlantDiseaseIdentifier = () => {
                             className={`
                                 ${selectedIdentification ? '' : 'pointer-events-none text-gray-500 border-gray-500'} 
                                 h-8 rounded-full border border-black mt-4`}>
-                            {(location.latitude != 0) ? (selectedIdentification ? 'Upload' : 'Select Crop First') : 'Turn Your Location On'}
+                            {selectedIdentification ? 'Upload' : 'Select Crop First'}
                         </button>
                     </>
                 }
                 {loadingPredict &&
-                    <Lottie animationData={identifyingLeaf} />
+                    <div className="flex flex-col">
+                        <div className="h-full">
+                            <Lottie animationData={identifyingLeaf} />
+                        </div>
+                        <div className="flex items-center justify-center">
+                            <button className="font-bold text-lg text-center -mt-10 border border-black rounded-full w-[80%]" onClick={() => setLoadingPredict(false)}>
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
                 }
                 {donePrediction &&
                     <motion.div className='flex flex-col' initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -130,7 +158,7 @@ const PlantDiseaseIdentifier = () => {
                         {showDescriptionModal &&
                             <DescriptionModal predictedClass={predictedClass} isVisible={showDescriptionModal} onClose={() => setShowDescriptionModal(false)} />
                         }
-                        <button className="text-balance border border-black rounded-full w-full mt-2" onClick={() => setShowDescriptionModal(true)}>
+                        <button className="text-balance border border-black rounded-full w-full mt-2" onClick={() => setShowMTModal(true)}>
                             Management and Treatment
                         </button>
                         {showMTModal &&

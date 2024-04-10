@@ -25,11 +25,11 @@ function PrivacyPolicy({ isVisible, onClose }: PrivacyPolicyProps) {
   } else {
     return (
       <div className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm text-center justify-center items-center z-40 flex`}>
-        <div className="max-w-[420px] flex flex-col rounded-2xl bg-white border-black border text-black text-center justify-center items-center">
+        <div className="min-w-[300px] max-w-[420px] flex flex-col  rounded-2xl bg-white border-black border text-black text-center justify-center items-center">
           <div className='text-lg font-semibold m-2'>
             To Continue, you need to Read and Accept our Privacy Policy and turn on Location
           </div>
-          <div id="privacyPolicyContent" className="w-[400px] max-h-[200px] mx-2 border border-black overflow-y-auto" onScroll={handleScroll}>
+          <div id="privacyPolicyContent" className="ml-2 w-[350px] max-h-[200px] mx-2 border border-black overflow-y-auto" onScroll={handleScroll}>
             <div className="text-lg mt-3 font-bold">
               Data Privacy Policy
             </div>
@@ -133,14 +133,10 @@ function PrivacyPolicy({ isVisible, onClose }: PrivacyPolicyProps) {
             </div>
           </div>
           <div className="flex flex-col my-2">
-            <button onClick={() => onClose()} disabled={!scrolled || (location.latitude===0)} className={`${(location.latitude != 0) ? (scrolled ? 'text-black border-black' : 'text-gray-600 border-gray-600') : 'text-gray-600 border-gray-600'} border rounded-full py-1 px-4`}>
-              {(location.latitude != 0) ? (scrolled ? 'I Understand and Accept' : 'Read the Privacy Policy First') : 'Location Access is Required'}
+            <button onClick={() => onClose()} disabled={!scrolled} className={`${scrolled ? 'text-black border-black' : 'text-gray-600 border-gray-600'} border rounded-full py-1 px-4`}>
+              { scrolled ? 'I Understand and Accept' : 'Read the Privacy Policy First'}
             </button>
-            {(location.latitude === 0) &&
-              <a className="z-50 text-sm font-bold text-red-600" href="https://youtu.be/vq9riE8OChc?si=UkttT56-o_BxS6bh&t=2m01s" target="_blank">
-                Here's how to turn on location (click here)
-              </a>
-            }
+
           </div>
         </div>
       </div>

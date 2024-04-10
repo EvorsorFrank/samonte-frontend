@@ -94,7 +94,7 @@ function ExtraStatistics({ isVisible, onClose }: ExtraStatisticsProps) {
                     </div>
                 }
                 {!loadingData &&
-                    <div className=" max-w-[700px] flex-wrap w-screen mx-2  rounded-2xl bg-white border-black border text-black text-center ">
+                    <div className=" max-w-[700px] flex-wrap w-screen mx-2  rounded-2xl bg-white border-black border text-black text-center shadow-xl ">
                         <div className="pt-2">
                             This is the list of total identified plant diseases using the application
                         </div>

@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/leaflet.heat": "^0.2.4",
     "framer-motion": "^11.0.24",
+    "fuzzball": "^2.1.2",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
     "leaflet.heat": "^0.2.0",

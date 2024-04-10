@@ -109,7 +109,7 @@ function CityStatistics({ isVisible, onClose }: CityStatisticsProps) {
                         <div className="pt-2">
                             You live in: This is the count of plant diseases identified in your city
                         </div>
-                        <div className="flex-wrap max-h-[500px] flex flex-row justify-center items-center overflow-y-auto border border-black mx-2">
+                        <div className="flex-wrap max-h-[500px] flex flex-row justify-center items-center overflow-y-auto border border-black mx-2 shadow-xl">
                             {(beansCounts.length > 0) &&
                                 <div className='flex flex-initial flex-col mt-2 mx-3'>
                                     <div className="text-xl font-semibold">

@@ -74,15 +74,17 @@ function MTModal({ isVisible, onClose, predictedClass }: MTModalProps) {
     } else {
         return (
             <div className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-md text-center justify-center items-center z-50 flex`}>
-                <div className="min-w-[400px] min-h-[400px] w-[500px] h-[500px] mx-2 bg-white rounded-xl flex flex-col ">
+                <div className="w-[500px] h-[500px] mx-2 bg-white rounded-xl flex flex-col  px-1 border border-black ">
                     <div className="text-lg font-bold">
                         {predictedClass}
                     </div>
-                    <div className="overflow-y-auto w-full h-full">
-                        {renderContent()}
+                    <div className="overflow-y-auto w-full h-full mt-2 border border-black rounded-md shadow-xl">
+                        <BeanAngularLeafSpotMT/>
                     </div>
-                    <div className="h-10" onClick={() => onClose()}>
-                        Close
+                    <div className="w-full mb-2">
+                        <button className="h-7 w-20 border border-black rounded-full mt-2" onClick={() => onClose()}>
+                            Close
+                        </button>
                     </div>
                 </div>
             </div>

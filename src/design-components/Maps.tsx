@@ -8,11 +8,13 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import 'leaflet.heat';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster'
+import { motion } from 'framer-motion'
 
 import invisibleIcon from '../assets/invisiblePNG.png'
 import locationIcon from '../assets/location-pin.png'
 import ClickedClusterModal from '../design/ClickedClusterModal';
 import { locationData } from '../App';
+import FailedMapLoad from '../design/FailedMapLoad';
 
 // Define a type for the response data
 type HeatmapResponseData = {
@@ -70,6 +72,8 @@ const Maps = () => {
   const [clickedClusterData, setClickedClusterData] = useState<[string, number][]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedCrop, setSelectedCrop] = useState<string>('');
+  const [locationZero, setLocationZero] = useState<boolean>(false);
+  const [failedMapFetch, setFailedMapFetch] = useState<boolean>(false);
 
   useEffect(() => {
     if (selectedCrop) {
@@ -90,18 +94,32 @@ const Maps = () => {
           }
         } catch (error) {
           console.error('Error fetching heatmap data:', error);
+          setFailedMapFetch(true)
         }
       };
 
       fetchData();
     }
   }, [selectedCrop]);
+  
+  useEffect(() => {
+    setTimeout(
+      function () {
+        setFailedMapFetch(false)
+      }
+      , 2500)
+  }, [failedMapFetch])
 
 
-  if (latitudeUser === null || longitudeUser === null) {
+  if (latitudeUser === 0 || longitudeUser === 0) {
     return (
-      <div style={{ marginTop: '20px', height: '100%', backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: 50, marginLeft: '5vw', marginRight: '5vw' }}>
-        No Data
+      <div className='text-center mt-20'>
+        <div className="text-xl">
+          Turn on Location First :(
+        </div>
+        <a className="z-50 text-sm font-bold text-red-600" href="https://youtu.be/vq9riE8OChc?si=UkttT56-o_BxS6bh&t=2m01s" target="_blank">
+          Here's how to turn on location (click here)
+        </a>
       </div>
     );
   }
@@ -165,10 +183,13 @@ const Maps = () => {
 
 
 
+
   return (
 
     <div className='flex text-center justify-center items-center content-center'>
-
+      <motion.div animate={{ y: failedMapFetch ? 0 : 0 }}>
+        <FailedMapLoad isVisible={failedMapFetch} onClose={() => setFailedMapFetch(false)} />
+      </motion.div>
       <div className='h-full  z-10'>
         <div className='justify-center items-center content-center flex text-center -z-50'>
 
@@ -195,7 +216,7 @@ const Maps = () => {
               <span>You are here</span>
             </Tooltip>
             <Marker position={[latitudeUser, longitudeUser]}>
-              <img src={locationIcon}/>
+              <img src={locationIcon} />
               <Popup>
                 You are here
               </Popup>
@@ -256,6 +277,7 @@ const Maps = () => {
               }}
               className='bg-white mt-[2px] w-full'
             >
+              <option value="" disabled={selectedCrop ? true : false}>Select Crop to Display (Click Here)</option>
               <option value="beans">Beans</option>
               <option value="corn">Corn</option>
               <option value="rice">Rice</option>
@@ -266,7 +288,7 @@ const Maps = () => {
         </div>
       </div>
       <div className="z-50">
-       <ClickedClusterModal clickedClusterData={clickedClusterData} isVisible={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        <ClickedClusterModal clickedClusterData={clickedClusterData} isVisible={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </div>
   )

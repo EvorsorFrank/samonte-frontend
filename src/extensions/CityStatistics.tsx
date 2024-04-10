@@ -62,7 +62,6 @@ function CityStatistics({ isVisible, onClose }: CityStatisticsProps) {
             const response = await fetch(`${baseURL}/plant_disease_rankings_city`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
                     "ngrok-skip-browser-warning": "00000",
                 },
                 body: formData,

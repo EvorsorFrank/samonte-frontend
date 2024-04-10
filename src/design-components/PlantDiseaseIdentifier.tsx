@@ -54,11 +54,6 @@ const PlantDiseaseIdentifier = () => {
                 const response = await fetch(`${baseURL}/predict`, {
                     method: 'POST',
                     body: formData,
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                        "ngrok-skip-browser-warning": "00000",
-                      },
-                    
                     signal
                 })
                 const data = await response.json()
@@ -137,7 +132,7 @@ const PlantDiseaseIdentifier = () => {
                         <div className="h-full">
                             <Lottie animationData={identifyingLeaf} />
                         </div>
-                        <div className="flex items-center justify-center"> 
+                        <div className="flex items-center justify-center">
                             <button className="font-bold text-lg text-center -mt-10 border border-black rounded-full w-[80%] z-20" onClick={() => setLoadingPredict(false)}>
                                 Cancel
                             </button>

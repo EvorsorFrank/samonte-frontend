@@ -68,8 +68,6 @@ const Library = () => {
     disease.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const closestMatch = fuzzball.extract(searchQuery, listDiseases, { scorer: fuzzball.ratio });
-
   return (
     <div>
       {(selectedClass !== "") && (

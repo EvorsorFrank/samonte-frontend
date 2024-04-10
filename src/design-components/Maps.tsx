@@ -72,7 +72,6 @@ const Maps = () => {
   const [clickedClusterData, setClickedClusterData] = useState<[string, number][]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedCrop, setSelectedCrop] = useState<string>('');
-  const [locationZero, setLocationZero] = useState<boolean>(false);
   const [failedMapFetch, setFailedMapFetch] = useState<boolean>(false);
 
   useEffect(() => {
@@ -188,7 +187,7 @@ const Maps = () => {
 
     <div className='flex text-center justify-center items-center content-center'>
       <motion.div animate={{ y: failedMapFetch ? 0 : 0 }}>
-        <FailedMapLoad isVisible={failedMapFetch} onClose={() => setFailedMapFetch(false)} />
+        <FailedMapLoad isVisible={failedMapFetch} />
       </motion.div>
       <div className='h-full  z-10'>
         <div className='justify-center items-center content-center flex text-center -z-50'>

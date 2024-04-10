@@ -1,4 +1,3 @@
-import { render } from "react-dom";
 import BeanAngularLeafSpotD from "../description/BeanAngularLeafSpotD";
 import BeanRustD from "../description/BeanRustD";
 import CornCommonRustD from "../description/CornCommonRustD";

@@ -7,7 +7,6 @@ interface PrivacyPolicyProps {
 }
 
 function PrivacyPolicy({ isVisible, onClose }: PrivacyPolicyProps) {
-  const location = useContext(locationData)
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {

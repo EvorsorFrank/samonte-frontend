@@ -1,9 +1,8 @@
 interface FailedPopupProps {
     isVisible: boolean;
-    onClose: any;
 }
 
-function FailedPopup({ isVisible, onClose }: FailedPopupProps) {
+function FailedPopup({ isVisible }: FailedPopupProps) {
 
     if (!isVisible) {
         return null;

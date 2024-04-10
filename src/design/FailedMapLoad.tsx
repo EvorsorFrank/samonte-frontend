@@ -1,9 +1,8 @@
 interface FailedMapLoadProps {
     isVisible: boolean;
-    onClose: any;
 }
 
-function FailedMapLoad({ isVisible, onClose }: FailedMapLoadProps) {
+function FailedMapLoad({ isVisible}: FailedMapLoadProps) {
 
     if (!isVisible) {
         return null;

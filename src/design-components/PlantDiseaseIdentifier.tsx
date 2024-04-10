@@ -82,7 +82,7 @@ const PlantDiseaseIdentifier = () => {
     return (
         <>
             <motion.div animate={{ y: failedPredict ? 0 : 0 }}>
-                <FailedPopup isVisible={failedPredict} onClose={() => setFailedPredict(false)} />
+                <FailedPopup isVisible={failedPredict} />
             </motion.div>
             <div className="flex flex-col">
                 <div className="my-1">

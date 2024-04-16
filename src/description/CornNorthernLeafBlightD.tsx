@@ -2,15 +2,22 @@ import cornNorthernLeafBlight from "../assets/disease_images/cornNorthernLeafBli
 
 const CornNorthernLeafBlightD = () => {
   return (
-    <div className=" contents px-1">
-      <img src={cornNorthernLeafBlight} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
-        <div className="font-bold">
-          What is Corn Northern Leaf Blight?
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
         </div>
-        <div className="break-words">
-          Corn Northern Leaf Blight is caused by a fungus named Exerohilum turcicum.
+        <img src={cornNorthernLeafBlight} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Corn Northern Leaf Blight?
+          </div>
+          <div className="break-words">
+            Corn Northern Leaf Blight is caused by a fungus named Exerohilum turcicum.
+          </div>
         </div>
+      </div>
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
           Signs and Symptoms
         </div>
@@ -24,7 +31,7 @@ const CornNorthernLeafBlightD = () => {
           The plant disease can also slow the yield by destroying the leaf which receives the majority of sunlight that are important to plants.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -14,14 +14,14 @@ const Home = () => {
                 <PlantDiseaseIdentifier />
             </div>
 
-            <div className='w-[350px] h-[550px] flex-initial  border-b-[1px] md:border-b-[0px]'>
+            <div className='w-[350px] h-[600px] flex-initial  border-b-[1px] md:border-b-[0px]'>
                 <div className='text-center text-lg font-bold mb-1'>
                     Statistics
                 </div>
                 <Statistics />
             </div>
 
-            <div className='w-[350px] h-[650px] flex-initial  border-b-[1px] md:border-b-[0px] z-10'>
+            <div className='w-[350px] h-[750px] flex-initial  border-b-[1px] md:border-b-[0px] z-10'>
                 <div className='text-center text-lg font-bold mb-1'>
                     Maps
                 </div>

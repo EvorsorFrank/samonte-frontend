@@ -4,6 +4,9 @@ const TomatoYellowLeafCurlVirusD = () => {
   return (
     <>
       <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
+        </div>
         <img src={tomatoYellowLeafCurlVirus} className='float-left w-[200px] m-4' />
         <div className="mx-2 text-balance">
           <div className="font-bold">

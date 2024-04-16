@@ -2,18 +2,22 @@ import cornGrayLeafSpot from '../assets/disease_images/cornGrayLeafSpot.jpg'
 
 const CornGrayLeafSpotD = () => {
   return (
-    <div className=" contents px-1">
-      <div className="font-bold text-xl">
-        - Description -
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
+        </div>
+        <img src={cornGrayLeafSpot} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Corn Gray Leaf Spot?
+          </div>
+          <div className="break-words">
+            Corn Gray Leaf Spot is caused by a fungus named Cercospora zeae-maydis.
+          </div>
+        </div>
       </div>
-      <img src={cornGrayLeafSpot} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
-        <div className="font-bold">
-          What is Corn Gray Leaf Spot?
-        </div>
-        <div className="break-words">
-          Corn Gray Leaf Spot is caused by a fungus named Cercospora zeae-maydis.
-        </div>
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
           Signs and Symptoms
         </div>
@@ -27,7 +31,7 @@ const CornGrayLeafSpotD = () => {
           The plant disease can also slow the yield by destroying the leaf which receives the majority of sunlight that are important to plants.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

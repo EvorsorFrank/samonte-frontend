@@ -42,7 +42,7 @@ const PlantDiseaseIdentifier = () => {
         const signal = controllerRef.current.signal;
         try {
             if (uploadedFile) {
-                const formData = new FormData();    
+                const formData = new FormData();
                 formData.append('file', uploadedFile);
                 formData.append('predictType', selectedIdentification);
                 if (location) {
@@ -84,6 +84,9 @@ const PlantDiseaseIdentifier = () => {
             <motion.div animate={{ y: failedPredict ? 0 : 0 }}>
                 <FailedPopup isVisible={failedPredict} />
             </motion.div>
+            <div className="text-pretty text-center mb-1">
+                This section identifies plant diseases by uploading a leaf image and selecting which crop the user has uploaded.
+            </div>
             <div className="flex flex-col">
                 <div className="my-1">
                     {!uploadedFile && !loadingPredict && !donePrediction &&
@@ -142,7 +145,7 @@ const PlantDiseaseIdentifier = () => {
                 {donePrediction &&
                     <motion.div className='flex flex-col' initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                         <div className="text-center text-lg font-semibold">
-                            Your crop has: {predictedClass}
+                            Your crop has {predictedClass}
                         </div>
                         {uploadedFile && (
                             <div className="flex flex-col min-w-screen place-content-evenly">
@@ -166,10 +169,6 @@ const PlantDiseaseIdentifier = () => {
                         }
                     </motion.div>
                 }
-                <div>
-                    {location.latitude}
-                    {location.longitude}
-                </div>
 
             </div>
         </>

@@ -2,15 +2,22 @@ import riceLeafBlast from '../assets/disease_images/riceLeafBlast.jpg'
 
 const RiceLeafBlastD = () => {
   return (
-    <div className=" contents px-1">
-      <img src={riceLeafBlast} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
-        <div className="font-bold">
-          What is Rice Leaf Blast?
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
         </div>
-        <div className="break-words">
-          Rice Leaf Blast is caused by a fungus named Magnaporthe oryzae.
+        <img src={riceLeafBlast} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Rice Leaf Blast?
+          </div>
+          <div className="break-words">
+            Rice Leaf Blast is caused by a fungus named Magnaporthe oryzae.
+          </div>
         </div>
+      </div>
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
           Signs and Symptoms
         </div>
@@ -23,7 +30,7 @@ const RiceLeafBlastD = () => {
           The plant disease can also slow the yield by destroying the leaf which receives the majority of sunlight that are important to plants.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

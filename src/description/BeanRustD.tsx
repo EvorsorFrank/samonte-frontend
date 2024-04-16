@@ -2,18 +2,22 @@ import beanRust from '../assets/disease_images/beanRust.jpg'
 
 const BeanRustD = () => {
   return (
-    <div className=" contents px-1">
-      <div className="font-bold text-xl">
-        - Description -
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
+        </div>
+        <img src={beanRust} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Bean Rust?
+          </div>
+          <div className="break-words">
+            Bean Rust is caused by a fungus named Uromyces appendiculatus.
+          </div>
+        </div>
       </div>
-      <img src={beanRust} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
-        <div className="font-bold">
-          What is Bean Rust?
-        </div>
-        <div className="break-words">
-          Bean Rust is caused by a fungus named Uromyces appendiculatus.
-        </div>
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
           Signs and Symptoms
         </div>
@@ -24,7 +28,7 @@ const BeanRustD = () => {
           fungus spores can fly with the wind blow and transfer to another plant. The fallen leaves can determine the severity of bean angular leaf spot.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

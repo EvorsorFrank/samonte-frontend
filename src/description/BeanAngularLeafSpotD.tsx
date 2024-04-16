@@ -2,19 +2,23 @@ import beanAngularLeafSpot from '../assets/disease_images/beanAngularLeafSpot.jp
 
 const BeanAngularLeafSpotD = () => {
   return (
-    <div className=" contents px-1">
-      <div className="font-bold text-xl">
-        - Description -
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
+        </div>
+        <img src={beanAngularLeafSpot} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Bean Angular Leaf Spot?
+          </div>
+          <div className="break-words">
+            Bean Angular Leaf Spot is caused by a fungus named Phaeoisariopsis griseola.
+          </div>
+        </div>
       </div>
-      <img src={beanAngularLeafSpot} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
-          What is Bean Angular Leaf Spot?
-        </div>
-        <div className="break-words">
-          Bean Angular Leaf Spot is caused by a fungus named Phaeoisariopsis griseola.
-        </div>
-        <div className="font-bold mt-2">
           Signs and Symptoms
         </div>
         <div className="">
@@ -25,7 +29,7 @@ const BeanAngularLeafSpotD = () => {
           The plant disease can also affect the pods, reducing or slowing the production of beans since it weakens the plant itself.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

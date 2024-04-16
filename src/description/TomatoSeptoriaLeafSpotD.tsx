@@ -2,15 +2,22 @@ import tomatoSeptoriaLeafSpot from '../assets/disease_images/tomatoSeptoriaLeafS
 
 const TomatoSeptoriaLeafSpotD = () => {
   return (
-    <div className=" contents px-1">
-      <img src={tomatoSeptoriaLeafSpot} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
-        <div className="font-bold">
-          What is Tomato Septoria Leaf Spot?
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
         </div>
-        <div className="break-words">
-          Tomato Septoria Leaf Spot is caused by a fungus named Septoria lycopersici.
+        <img src={tomatoSeptoriaLeafSpot} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Tomato Septoria Leaf Spot?
+          </div>
+          <div className="break-words">
+            Tomato Septoria Leaf Spot is caused by a fungus named Septoria lycopersici.
+          </div>
         </div>
+      </div>
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
           Signs and Symptoms
         </div>
@@ -23,7 +30,7 @@ const TomatoSeptoriaLeafSpotD = () => {
           The Septoria Leaf Spot can have a significant impact on yield, particularly if left untreated.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

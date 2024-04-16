@@ -2,15 +2,22 @@ import tomatoLeafMold from '../assets/disease_images/tomatoLeafMold.jpg'
 
 const TomatoLeafMoldD = () => {
   return (
-    <div className=" contents px-1">
-      <img src={tomatoLeafMold} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
-        <div className="font-bold">
-          What is Tomato Leaf Mold?
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
         </div>
-        <div className="break-words">
-          Tomato Leaf Mold is caused by a fungus named Passalora fulva.
+        <img src={tomatoLeafMold} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Tomato Leaf Mold?
+          </div>
+          <div className="break-words">
+            Tomato Leaf Mold is caused by a fungus named Passalora fulva.
+          </div>
         </div>
+      </div>
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
           Signs and Symptoms
         </div>
@@ -22,7 +29,7 @@ const TomatoLeafMoldD = () => {
           Severe infections can result in defoliation, reduced photosynthetic capacity, and fruit sunscald due to increased exposure.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

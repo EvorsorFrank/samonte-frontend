@@ -2,15 +2,22 @@ import riceBrownSpot from '../assets/disease_images/riceBrownSpot.jpg'
 
 const RiceBrownSpotD = () => {
   return (
-    <div className=" contents px-1">
-      <img src={riceBrownSpot} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
-        <div className="font-bold">
-          What is Rice Brown Spot?
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
         </div>
-        <div className="break-words">
-          Rice Brown Spot is caused by a fungus named Bipolaris oryzae.
+        <img src={riceBrownSpot} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Rice Brown Spot?
+          </div>
+          <div className="break-words">
+            Rice Brown Spot is caused by a fungus named Bipolaris oryzae.
+          </div>
         </div>
+      </div>
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
           Signs and Symptoms
         </div>
@@ -22,7 +29,7 @@ const RiceBrownSpotD = () => {
           The plant disease can also slow the yield by destroying the leaf which receives the majority of sunlight that are important to plants.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -2,15 +2,22 @@ import tomatoEarlyBlight from '../assets/disease_images/tomatoEarlyBlight.jpg'
 
 const TomatoEarlyBlightD = () => {
   return (
-    <div className=" contents px-1">
-      <img src={tomatoEarlyBlight} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
-        <div className="font-bold">
-          What is Tomato Early Blight?
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
         </div>
-        <div className="break-words">
-          Tomato Early Blight is caused by a fungus named Alternaria solani.
+        <img src={tomatoEarlyBlight} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Tomato Early Blight?
+          </div>
+          <div className="break-words">
+            Tomato Early Blight is caused by a fungus named Alternaria solani.
+          </div>
         </div>
+      </div>
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
           Signs and Symptoms
         </div>
@@ -23,7 +30,7 @@ const TomatoEarlyBlightD = () => {
           Early Blight can lead to significant defoliation, reduced fruit quality, and decreased yield if left unmanaged.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

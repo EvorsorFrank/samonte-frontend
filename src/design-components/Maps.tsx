@@ -100,7 +100,7 @@ const Maps = () => {
       fetchData();
     }
   }, [selectedCrop]);
-  
+
   useEffect(() => {
     setTimeout(
       function () {
@@ -184,112 +184,117 @@ const Maps = () => {
 
 
   return (
+    <>
+      <div className="text-pretty text-xs text-center mb-1">
+        This is the Maps section where you can check the plant disease cases near to your location. You can choose the disease you want to show on the maps by choosing a crop you want to show. The heatmap cluster that appear are pressable, you can view the plant disease cases by pressing on them.
+      </div>
+      <div className='flex text-center justify-center items-center content-center'>
+        <motion.div animate={{ y: failedMapFetch ? 0 : 0 }}>
+          <FailedMapLoad isVisible={failedMapFetch} />
+        </motion.div>
 
-    <div className='flex text-center justify-center items-center content-center'>
-      <motion.div animate={{ y: failedMapFetch ? 0 : 0 }}>
-        <FailedMapLoad isVisible={failedMapFetch} />
-      </motion.div>
-      <div className='h-full  z-10'>
-        <div className='justify-center items-center content-center flex text-center -z-50'>
+        <div className='h-full  z-10'>
+          <div className='justify-center items-center content-center flex text-center -z-50'>
 
-          <MapContainer center={[latitudeUser, longitudeUser]} zoom={15} maxZoom={15} minZoom={15} style={{ position: 'relative', width: '100%', height: '450px' }} >
-            {heatmapData.length > 0 && (
-              <HeatMapLayer
-                points={heatmapData}
-                blur={25}
-                maxZoom={10}
-                max={6.0}
-                gradient={{ 0.5: 'rgba(0, 255, 255, 1)', 0.6: 'rgba(0, 0, 255, 1)', 0.7: 'rgba(0, 255, 0, 1)', 0.8: 'rgba(255, 255, 0, 1)', 0.9: 'rgba(255, 0, 0, 1)' }}
+            <MapContainer center={[latitudeUser, longitudeUser]} zoom={15} maxZoom={15} minZoom={15} style={{ position: 'relative', width: '100%', height: '450px' }} >
+              {heatmapData.length > 0 && (
+                <HeatMapLayer
+                  points={heatmapData}
+                  blur={25}
+                  maxZoom={10}
+                  max={6.0}
+                  gradient={{ 0.5: 'rgba(0, 255, 255, 1)', 0.6: 'rgba(0, 0, 255, 1)', 0.7: 'rgba(0, 255, 0, 1)', 0.8: 'rgba(255, 255, 0, 1)', 0.9: 'rgba(255, 0, 0, 1)' }}
+                />
+              )}
+              <TileLayer
+                url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
+                attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a> contributors'
+                maxZoom={18}
+                id="mapbox/satellite-streets-v12" // Mapbox style ID for satellite view
+                tileSize={512}
+                zoomOffset={-1}
+                accessToken="pk.eyJ1IjoiZXZvcnNvcmRldiIsImEiOiJjbG5idHYxbHMwMGpjMmxtcmdjeXk5MGZiIn0.M1o1hTHMFOYTGTB0lwKLKQ"
               />
-            )}
-            <TileLayer
-              url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
-              attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a> contributors'
-              maxZoom={18}
-              id="mapbox/satellite-streets-v12" // Mapbox style ID for satellite view
-              tileSize={512}
-              zoomOffset={-1}
-              accessToken="pk.eyJ1IjoiZXZvcnNvcmRldiIsImEiOiJjbG5idHYxbHMwMGpjMmxtcmdjeXk5MGZiIn0.M1o1hTHMFOYTGTB0lwKLKQ"
-            />
-            <Tooltip direction="top" offset={[0, -30]} opacity={1} permanent>
-              <span>You are here</span>
-            </Tooltip>
-            <Marker position={[latitudeUser, longitudeUser]}>
-              <img src={locationIcon} />
-              <Popup>
-                You are here
-              </Popup>
-            </Marker>
-            <MarkerClusterGroup
-              spiderfyOnMaxZoom={false}
-              eventHandlers={{
-                clusterclick: (event: any) => handleClusterClick(event),
-              }}
-              iconCreateFunction={createClusterCustomIcon}
+              <Tooltip direction="top" offset={[0, -30]} opacity={1} permanent>
+                <span>You are here</span>
+              </Tooltip>
+              <Marker position={[latitudeUser, longitudeUser]}>
+                <img src={locationIcon} />
+                <Popup>
+                  You are here
+                </Popup>
+              </Marker>
+              <MarkerClusterGroup
+                spiderfyOnMaxZoom={false}
+                eventHandlers={{
+                  clusterclick: (event: any) => handleClusterClick(event),
+                }}
+                iconCreateFunction={createClusterCustomIcon}
+              >
+                {clusterDiseaseData.map((dataPoint, index) => {
+                  // Check if latitude and longitude are valid numbers
+                  if (typeof dataPoint[0] === 'number' && typeof dataPoint[1] === 'number') {
+                    return (
+                      <Marker
+                        key={index}
+                        position={[dataPoint[0], dataPoint[1]]}
+                        icon={L.icon({ iconUrl: invisibleIcon, iconSize: [30, 30] })}
+                      >
+                        <Popup>{`${dataPoint[2]}: 1`}</Popup>
+                      </Marker>
+                    );
+                  } else {
+                    // Handle invalid data points
+                    console.error(`Invalid data point at index ${index}: ${dataPoint}`);
+                    return null;
+                  }
+                })}
+              </MarkerClusterGroup>
+            </MapContainer>
+          </div>
+
+
+          <div className='text-lg font-bold'> Plant Disease Density </div>
+          <div className='flex flex-col justify-center items-center h-full'>
+            <div className='flex h-[20px] flex-row justify-between w-full' style={{
+              background: 'linear-gradient(to right, cyan, blue , lime, yellow, red)',
+            }}>
+              <div style={{ marginLeft: 10 }}><b>Low</b></div>
+              <div><b>Medium</b></div>
+              <div style={{ marginRight: 10 }}><b>High</b></div>
+            </div>
+          </div>
+
+          <div className='flex flex-col justify-center items-center pt-[1%]'>
+            <div className=' text-xs w-full text-center m-auto'>
+              <b>You can display the density of plant disease near your location by choosing one of the crop choices below. You can also tap/click each cluster to see how many cases of plant disease it has</b>
+            </div>
+            <form
+              className='w-full max-w-[400px] pb-[10vh] mt-[1%]'
             >
-              {clusterDiseaseData.map((dataPoint, index) => {
-                // Check if latitude and longitude are valid numbers
-                if (typeof dataPoint[0] === 'number' && typeof dataPoint[1] === 'number') {
-                  return (
-                    <Marker
-                      key={index}
-                      position={[dataPoint[0], dataPoint[1]]}
-                      icon={L.icon({ iconUrl: invisibleIcon, iconSize: [30, 30] })}
-                    >
-                      <Popup>{`${dataPoint[2]}: 1`}</Popup>
-                    </Marker>
-                  );
-                } else {
-                  // Handle invalid data points
-                  console.error(`Invalid data point at index ${index}: ${dataPoint}`);
-                  return null;
-                }
-              })}
-            </MarkerClusterGroup>
-          </MapContainer>
-        </div>
+              <select
+                value={selectedCrop}
+                onChange={(e: any) => {
+                  handleCropHeatmap(e.target.value as string);
+                  setHeatmapData([]);
+                }}
+                className='bg-white mt-[2px] w-full'
+              >
+                <option value="" disabled={selectedCrop ? true : false}>Select Crop to Display (Click Here)</option>
+                <option value="beans">Beans</option>
+                <option value="corn">Corn</option>
+                <option value="rice">Rice</option>
+                <option value="tomato">Tomato</option>
+              </select>
+            </form>
 
-
-        <div className='text-lg font-bold'> Plant Disease Density </div>
-        <div className='flex flex-col justify-center items-center h-full'>
-          <div className='flex h-[20px] flex-row justify-between w-full' style={{
-            background: 'linear-gradient(to right, cyan, blue , lime, yellow, red)',
-          }}>
-            <div style={{ marginLeft: 10 }}><b>Low</b></div>
-            <div><b>Medium</b></div>
-            <div style={{ marginRight: 10 }}><b>High</b></div>
           </div>
         </div>
-
-        <div className='flex flex-col justify-center items-center pt-[1%]'>
-          <div className=' text-xs w-full text-center m-auto'>
-            <b>You can display the density of plant disease near your location by choosing one of the crop choices below. You can also tap/click each cluster to see how many cases of plant disease it has</b>
-          </div>
-          <form
-            className='w-full max-w-[400px] pb-[10vh] mt-[1%]'
-          >
-            <select
-              value={selectedCrop}
-              onChange={(e: any) => {
-                handleCropHeatmap(e.target.value as string);
-                setHeatmapData([]);
-              }}
-              className='bg-white mt-[2px] w-full'
-            >
-              <option value="" disabled={selectedCrop ? true : false}>Select Crop to Display (Click Here)</option>
-              <option value="beans">Beans</option>
-              <option value="corn">Corn</option>
-              <option value="rice">Rice</option>
-              <option value="tomato">Tomato</option>
-            </select>
-          </form>
-
+        <div className="z-50">
+          <ClickedClusterModal clickedClusterData={clickedClusterData} isVisible={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
       </div>
-      <div className="z-50">
-        <ClickedClusterModal clickedClusterData={clickedClusterData} isVisible={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      </div>
-    </div>
+    </>
   )
 }
 

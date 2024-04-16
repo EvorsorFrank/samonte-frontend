@@ -49,6 +49,7 @@ function CityStatistics({ isVisible, onClose }: CityStatisticsProps) {
     const [cornCityDiseaseCount, setCornCityDiseaseCount] = useState<CornCityDiseaseCount[]>([])
     const [riceCityDiseaseCount, setRiceCityDiseaseCount] = useState<RiceCityDiseaseCount[]>([])
     const [tomatoCityDiseaseCount, setTomatoCityDiseaseCount] = useState<TomatoCityDiseaseCount[]>([])
+    const [cityLocation, setCityLocation] = useState<string>('')
     const [loadingData, setLoadingData] = useState<boolean>(false);
 
     const getPlantDiseaseCityCounts = async () => {
@@ -72,6 +73,7 @@ function CityStatistics({ isVisible, onClose }: CityStatisticsProps) {
             setCornCityDiseaseCount(data.Corn);
             setRiceCityDiseaseCount(data.Rice);
             setTomatoCityDiseaseCount(data.Tomato);
+            setCityLocation(data.City);
             setLoadingData(false)
         } catch (error) {
             console.error('Error fetching plant disease rankings:', error);
@@ -111,7 +113,7 @@ function CityStatistics({ isVisible, onClose }: CityStatisticsProps) {
                 {!loadingData &&
                     <div className="max-w-[700px] flex-wrap w-screen mx-2  rounded-2xl bg-white border-black border text-black text-center ">
                         <div className="pt-2">
-                            You live in: This is the count of plant diseases identified in your city
+                            You live in {cityLocation}, this is the count of plant diseases identified in your city
                         </div>
                         <div className="flex-wrap max-h-[500px] flex flex-row justify-center items-center overflow-y-auto border border-black mx-2 shadow-xl">
                             {(beansCounts.length > 0) &&

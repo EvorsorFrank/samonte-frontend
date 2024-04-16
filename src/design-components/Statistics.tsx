@@ -137,6 +137,9 @@ const Statistics: React.FC = () => {
 
     return (
         <>
+            <div className="text-pretty text-sm text-center mb-1">
+                This is the section where you can check statistics that may help the user for decision making on where to plant and what is the most-common diseases appearing on their cities.
+            </div>
             {loadingFetch &&
                 <Lottie animationData={loadingAnimation} />
             }

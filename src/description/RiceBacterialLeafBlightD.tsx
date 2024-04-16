@@ -2,15 +2,22 @@ import riceBacterialLeafBlight from '../assets/disease_images/riceBacterialLeafB
 
 const RiceBacterialLeafBlightD = () => {
   return (
-    <div className=" contents px-1">
-      <img src={riceBacterialLeafBlight} className='float-left w-[200px] m-4' />
-      <div className="mx-2 text-balance">
-        <div className="font-bold">
-          What is Rice Bacterial Leaf Blight?
+    <>
+      <div className=" contents px-1">
+        <div className="font-bold text-xl">
+          - Description -
         </div>
-        <div className="break-words">
-          Rice Bacterial Leaf Blight is caused by a bacterium named Xanthomonas oryzae.
+        <img src={riceBacterialLeafBlight} className='float-left w-[200px] m-4' />
+        <div className="mx-2 text-balance">
+          <div className="font-bold">
+            What is Rice Bacterial Leaf Blight?
+          </div>
+          <div className="break-words">
+            Rice Bacterial Leaf Blight is caused by a bacterium named Xanthomonas oryzae.
+          </div>
         </div>
+      </div>
+      <div className='flex flex-col w-full'>
         <div className="font-bold">
           Signs and Symptoms
         </div>
@@ -22,7 +29,7 @@ const RiceBacterialLeafBlightD = () => {
           The disease lives well in warm temperatures between 25-30°C and humid conditions.
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

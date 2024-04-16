@@ -35,7 +35,7 @@ function PrivacyPolicy({ isVisible, onClose }: PrivacyPolicyProps) {
               1. Introduction
             </div>
             <div className="text-base">
-              Welcome to Plant Disease Identifier App. This Privacy Policy outlines how we collect, use, disclose,
+              Welcome to Plant Disease Identifier App. This is an application about identifying plant diseases, showing their locations, and helping people to get through their planting predicaments! Make sure to open your location to gain the full features of this app! This Privacy Policy outlines how we collect, use, disclose,
               and protect your personal information when you use our App. By using our App, you consent to the
               practices described in this Privacy Policy.
             </div>

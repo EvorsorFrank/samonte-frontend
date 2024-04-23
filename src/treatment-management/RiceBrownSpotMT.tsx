@@ -1,6 +1,10 @@
 const RiceBrownSpotMT = () => {
   return (
     <>
+      <div className="font-bold text-2xl mt-5 py-5 border-black border-y-2">
+        Management System
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - General Management -
       </div>
@@ -102,6 +106,15 @@ const RiceBrownSpotMT = () => {
         4. Remove any weeds to prevent any disease-causing microorganisms.
       </div>
 
+      <div className='mt-1'>
+        5. Early detection of any signs of plant diseases is a must; monitor your plants to avoid spreading further. They usually
+        have abnormalities in appearance besides the usual green color.
+      </div>
+
+      <div className='mt-1'>
+        6. Avoid using overhead irrigation such as sprinklers.
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - Effective Management/Treatments -
       </div>
@@ -157,7 +170,7 @@ const RiceBrownSpotMT = () => {
             Seed treatment with Pseudomonas fluorescens @ 10g/kg of seed followed by seedling dip @ of 2.5 kg or products/ha dissolved in 100 litres and dipping for 30 minutes.
           </li>
           <li>
-            seed soak / seed treatment with Captan or  Thiram at 2.0g /kg of seed
+            Seed soak / seed treatment with Captan or  Thiram at 2.0g /kg of seed
           </li>
           <li>
             Seed treatment with Agrosan or Ceresan 2.5 g/kg seed to ward off seedling blight stage;

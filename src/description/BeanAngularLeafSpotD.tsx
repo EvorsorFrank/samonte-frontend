@@ -3,7 +3,7 @@ import beanAngularLeafSpot from '../assets/disease_images/beanAngularLeafSpot.jp
 const BeanAngularLeafSpotD = () => {
   return (
     <>
-      <div className=" contents px-1">
+      <div className="contents px-1">
         <div className="font-bold text-xl">
           - Description -
         </div>

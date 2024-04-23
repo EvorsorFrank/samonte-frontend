@@ -1,6 +1,10 @@
 const RiceLeafScaldMT = () => {
   return (
     <>
+      <div className="font-bold text-2xl mt-5 py-5 border-black border-y-2">
+        Management System
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - General Management -
       </div>
@@ -102,6 +106,15 @@ const RiceLeafScaldMT = () => {
         4. Remove any weeds to prevent any disease-causing microorganisms.
       </div>
 
+      <div className='mt-1'>
+        5. Early detection of any signs of plant diseases is a must; monitor your plants to avoid spreading further. They usually
+        have abnormalities in appearance besides the usual green color.
+      </div>
+
+      <div className='mt-1'>
+        6. Avoid using overhead irrigation such as sprinklers.
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - Effective Management/Treatments -
       </div>
@@ -121,7 +134,6 @@ const RiceLeafScaldMT = () => {
       <div className='mt-1'>
         Seed and fertilizer treatments provide suppression of leaf scald during seedling development, delaying early infections. Monitor crops for symptoms and apply foliar fungicides from mid-tillering (earlier if no seed treatment has been used) if infection levels warrant crop protection. Often two applications may be required to minimize grain yield and quality reductions under heavy infection. Prosaro® and Aviator® XPro® have both protective and curative properties, and both are registered for the control of leaf scald in barley.
       </div>
-
 
       <div className='mt-1 break-all'>
         <b>Source:</b> <a href="https://www.crop.bayer.com.au/pests/diseases/leaf-scald">

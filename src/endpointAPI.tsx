@@ -1,4 +1,4 @@
-const BASE_URL = 'https://9da6-110-54-129-140.ngrok-free.app';
+const BASE_URL = 'http://192.168.29.51:5000';
 
 const endpointAPI = () => BASE_URL;
 

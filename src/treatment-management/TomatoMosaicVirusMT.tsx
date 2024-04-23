@@ -1,6 +1,10 @@
 const TomatoMosaicVirusMT = () => {
   return (
     <>
+      <div className="font-bold text-2xl mt-5 py-5 border-black border-y-2">
+        Management System
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - Effective Management/Treatments -
       </div>

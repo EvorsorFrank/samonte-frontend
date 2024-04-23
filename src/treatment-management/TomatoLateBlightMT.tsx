@@ -1,6 +1,10 @@
 const TomatoLateBlightMT = () => {
   return (
     <>
+      <div className="font-bold text-2xl mt-5 py-5 border-black border-y-2">
+        Management System
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - General Management -
       </div>
@@ -102,6 +106,15 @@ const TomatoLateBlightMT = () => {
         4. Remove any weeds to prevent any disease-causing microorganisms.
       </div>
 
+      <div className='mt-1'>
+        5. Avoid using overhead irrigation such as sprinklers.
+      </div>
+
+      <div className='mt-1'>
+        6. Early detection of any signs of plant diseases is a must; monitor your plants to avoid spreading further. They usually
+        have abnormalities in appearance besides the usual green color.
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - Effective Management/Treatments -
       </div>
@@ -115,7 +128,7 @@ const TomatoLateBlightMT = () => {
       </div>
 
       <div className='mt-1'>
-        Products containing the active ingredients copper or chlorothalonil (the trade name of one product with chlorothalonil is known as ‘Daconil’) are the best and only effective products available to home gardeners. In addition, home gardeners should grow varieties with resistance if they are worried about late blight in future years because most chemicals available to the home gardener are not sufficient to control late blight once it appears. Once plants are infected in a home garden, there is little that can be done to protect them besides weekly fungicide sprays.
+        Products containing the active ingredients copper or chlorothalonil (the trade name of one product with chlorothalonil is known as ‘Daconil') are the best and only effective products available to home gardeners. In addition, home gardeners should grow varieties with resistance if they are worried about late blight in future years because most chemicals available to the home gardener are not sufficient to control late blight once it appears. Once plants are infected in a home garden, there is little that can be done to protect them besides weekly fungicide sprays.
       </div>
 
       <div className='mt-1'>
@@ -143,7 +156,8 @@ const TomatoLateBlightMT = () => {
       </div>
 
       <div className='mt-1 break-all'>
-        <b>Source:</b> <a href="https://content.ces.ncsu.edu/tomato-late-blight">
+        <b>Source:</b>
+        <a href="https://content.ces.ncsu.edu/tomato-late-blight">
           https://content.ces.ncsu.edu/tomato-late-blight
         </a>
       </div>
@@ -167,7 +181,7 @@ const TomatoLateBlightMT = () => {
             Learn to distinguish the symptoms of late blight from those of other common tomato diseases, like early blight and Septoria leaf spot.
           </li>
           <li>
-            Pull out and remove plants with late blight symptoms. This will protect your neighbors’ gardens and local farmers. Put plants in a large plastic bag, seal the bag and leave it out in the sunshine for a week before putting it out with the household trash for pick-up. Do not attempt to compost infected plants.
+            Pull out and remove plants with late blight symptoms. This will protect your neighbors' gardens and local farmers. Put plants in a large plastic bag, seal the bag and leave it out in the sunshine for a week before putting it out with the household trash for pick-up. Do not attempt to compost infected plants.
           </li>
           <li>
             You cannot “cure” this disease once you see the symptoms. Protectant fungicides, like chlorothalonil, mancozeb, and fixed liquid copper, can help protect foliage if applied prior to infection. Copper sprays are acceptable for organic gardening.

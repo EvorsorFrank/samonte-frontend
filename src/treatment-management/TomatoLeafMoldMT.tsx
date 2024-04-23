@@ -1,8 +1,12 @@
 const TomatoLeafMoldMT = () => {
   return (
     <>
+      <div className="font-bold text-2xl mt-5 py-5 border-black border-y-2">
+        Management System
+      </div>
+
       <div className="font-bold text-xl mt-5">
-       - General Management -
+        - General Management -
       </div>
 
       <div className='mt-2'>
@@ -102,71 +106,13 @@ const TomatoLeafMoldMT = () => {
         4. Remove any weeds to prevent any disease-causing microorganisms.
       </div>
 
-      <div className="font-bold text-xl mt-5">
-        - Effective Management/Treatments -
-      </div>
-
-      <div className='mt-2'>
-        <b>Option 1</b>
+      <div className='mt-1'>
+        5. Avoid using overhead irrigation such as sprinklers.
       </div>
 
       <div className='mt-1'>
-        Angular leaf spot can be managed by using disease-free seed. Some resistant varieties of cucumber are available. Crop
-        rotation helps to lower inoculum levels. Avoid handling plants when they are wet, and limit overhead irrigation. Copper compounds
-        can be applied preventatively before symptoms appear, and every 5-10 days during weather that favors disease. Insecticides may also
-        be used to manage insect pests, which may cause wounds that serve as entry points for the bacteria.
-      </div>
-      <div className='mt-1'>
-        Fungicide applications may be avoided by following good Integrated Pest Management practices like those listed in this encyclopedia article.
-        Often, only preventative application is effective to manage plant diseases.
-      </div>
-
-      <div className='mt-1 break-all'>
-        <b>Source:</b> <a href="https://yardandgarden.extension.iastate.edu/encyclopedia/angular-leaf-spot">
-          https://yardandgarden.extension.iastate.edu/encyclopedia/angular-leaf-spot
-        </a>
-      </div>
-
-      <div className='mt-2'>
-        <b>Option 2</b>
-      </div>
-
-      <div className='mt-1 text-start'>
-        <ul className="list-disc ml-10">
-          <li>
-            Purchase certified disease-free seeds
-          </li>
-          <li>
-            Utilize the disease-resistant seeds
-          </li>
-          <li>
-            Rotate away from legume crops for a minimum of 2 years.
-          </li>
-          <li>
-            Increase plant spacing.
-          </li>
-          <li>
-            Remove and destroy infected plants or plant parts during the growing season
-          </li>
-          <li>
-            Avoid overhead watering
-          </li>
-          <li>
-            Remove and destroy plant debris at the end of the season
-          </li>
-          <li>
-            Purchase certified disease-free seeds
-          </li>
-          <li>
-            Purchase certified disease-free seeds
-          </li>
-        </ul>
-      </div>
-
-      <div className='mt-1 break-all'>
-        <b>Source:</b> <a target="_blank" href="https://kentuckypestnews.wordpress.com/2023/07/11/bean-angular-leaf-spot/">
-          https://kentuckypestnews.wordpress.com/2023/07/11/bean-angular-leaf-spot/
-        </a>
+        6. Early detection of any signs of plant diseases is a must; monitor your plants to avoid spreading further. They usually
+        have abnormalities in appearance besides the usual green color.
       </div>
     </>
   )

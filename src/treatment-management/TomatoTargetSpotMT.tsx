@@ -1,6 +1,10 @@
 const TomatoTargetSpotMT = () => {
   return (
     <>
+      <div className="font-bold text-2xl mt-5 py-5 border-black border-y-2">
+        Management System
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - General Management -
       </div>
@@ -102,6 +106,15 @@ const TomatoTargetSpotMT = () => {
         4. Remove any weeds to prevent any disease-causing microorganisms.
       </div>
 
+      <div className='mt-1'>
+        5. Avoid using overhead irrigation such as sprinklers.
+      </div>
+
+      <div className='mt-1'>
+        6. Early detection of any signs of plant diseases is a must; monitor your plants to avoid spreading further. They usually
+        have abnormalities in appearance besides the usual green color.
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - Effective Management/Treatments -
       </div>
@@ -120,7 +133,7 @@ const TomatoTargetSpotMT = () => {
             Remove old plant debris at the end of the growing season; otherwise, the spores will travel from debris to newly planted tomatoes in the following growing season, thus beginning the disease anew. Dispose of the debris properly and don’t place it on your compost pile unless you’re sure your compost gets hot enough to kill the spores.
           </li>
           <li>
-            Rotate crops and don't plant tomatoes in areas where other disease-prone plants have been located in the past year– primarily eggplant, peppers, potatoes or, of course – tomatoes. Rutgers University Extension recommends a three-year rotation cycle to reduce soil-borne fungi.
+            Rotate crops and don't plant tomatoes in areas where other disease-prone plants have been located in the past year- primarily eggplant, peppers, potatoes or, of course - tomatoes. Rutgers University Extension recommends a three-year rotation cycle to reduce soil-borne fungi.
           </li>
           <li>
             Pay careful attention to air circulation, as target spot of tomato thrives in humid conditions. Grow the plants in full sunlight. Be sure the plants aren’t crowded and that each tomato has plenty of air circulation. Cage or stake tomato plants to keep the plants above the soil.
@@ -139,10 +152,6 @@ const TomatoTargetSpotMT = () => {
         <b>Source:</b> <a href="https://www.gardeningknowhow.com/edible/vegetables/tomato/target-spot-on-tomatoes.htm">
           https://www.gardeningknowhow.com/edible/vegetables/tomato/target-spot-on-tomatoes.htm
         </a>
-      </div>
-
-      <div className='mt-2'>
-        <b>Option 2</b>
       </div>
 
       <div className='mt-2'>

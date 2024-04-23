@@ -1,6 +1,10 @@
 const CornNorthernLeafBlightMT = () => {
   return (
     <>
+      <div className="font-bold text-2xl mt-5 py-5 border-black border-y-2">
+        Management System
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - General Management -
       </div>
@@ -102,10 +106,19 @@ const CornNorthernLeafBlightMT = () => {
         4. Remove any weeds to prevent any disease-causing microorganisms.
       </div>
 
+      <div className='mt-1'>
+        5. Early detection of any signs of plant diseases is a must; monitor your plants to avoid spreading further. They usually
+        have abnormalities in appearance besides the usual green color.
+      </div>
+
+      <div className='mt-1'>
+        6. Avoid using overhead irrigation such as sprinklers.
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - Effective Management/Treatments -
       </div>
-      
+
       <div className='mt-1'>
         The main management approach for lowering NCLB incidence and severity is to plant resistant maize varieties. In maize, there are two kinds of resistance to the disease. Multiple genes regulate the first kind of resistance, which is non-race specific and manifests in corn plants as a decrease in the size, quantity, and sporulation of lesions. With this kind of resistance, the latent phase before conidia production can also be prolonged. A single dominant gene governs the second form of resistance, which is race-specific. Small chlorotic (yellow) lesions with reduced sporulation are indicative of NCLB in race-specific resistant products.
       </div>

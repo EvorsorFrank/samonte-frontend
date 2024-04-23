@@ -1,6 +1,10 @@
 const TomatoSeptoriaLeafSpotMT = () => {
   return (
     <>
+      <div className="font-bold text-2xl mt-5 py-5 border-black border-y-2">
+        Management System
+      </div>
+
       <div className="font-bold text-xl mt-5">
         - General Management -
       </div>
@@ -100,6 +104,15 @@ const TomatoSeptoriaLeafSpotMT = () => {
 
       <div className='mt-1'>
         4. Remove any weeds to prevent any disease-causing microorganisms.
+      </div>
+
+      <div className='mt-1'>
+        5. Avoid using overhead irrigation such as sprinklers.
+      </div>
+
+      <div className='mt-1'>
+        6. Early detection of any signs of plant diseases is a must; monitor your plants to avoid spreading further. They usually
+        have abnormalities in appearance besides the usual green color.
       </div>
 
       <div className="font-bold text-xl mt-5">

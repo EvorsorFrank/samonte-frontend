@@ -59,6 +59,7 @@ const Statistics: React.FC = () => {
                 const response = await fetch(`${baseURL}/identification_count`, {
                     method: 'GET',
                     headers: {
+                        'Content-Type': 'application/json',
                         "ngrok-skip-browser-warning": "00000",
                     },
                     signal
@@ -94,6 +95,7 @@ const Statistics: React.FC = () => {
                 const response = await fetch(`${baseURL}/plant_disease_counts`, {
                     method: 'GET',
                     headers: {
+                        'Content-Type': 'application/json',
                         "ngrok-skip-browser-warning": "00000",
                     },
                     signal
